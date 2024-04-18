@@ -28,7 +28,7 @@ export default function CreatePost() {
   async function onSubmit(values) {
     try {
       const post = await axios.post(
-        import.meta.env.VITE_POSTS_SERVICE + "posts",
+        import.meta.env.VITE_POSTS_SERVICE_CREATE + "posts",
         values
       );
       console.log(post);

@@ -12,7 +12,9 @@ export default function ListComponents() {
   }, []);
 
   async function fetchPosts() {
-    const res = await axios.get(import.meta.env.VITE_POSTS_SERVICE + "posts");
+    const res = await axios.get(
+      import.meta.env.VITE_POSTS_SERVICE_GET + "posts"
+    );
     setPosts(res.data);
   }
 
@@ -24,7 +26,7 @@ export default function ListComponents() {
         </CardHeader>
         <CardContent>
           <p>{post.data}</p>
-          <ListComment postId={post.id} />
+          <ListComment comments={post.comments} />
           <CreateComment postId={post.id} />
         </CardContent>
       </Card>
