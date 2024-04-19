@@ -37,6 +37,15 @@ app.post("/events", async (req, res) => {
       console.log(error);
     });
 
+  await axios
+    .post("http://localhost:4003/events", event)
+    .then((response) => {
+      console.log("MODERATION", response.status);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
   console.log("Event emmited");
   return res.send({ status: "Ok" });
 });
